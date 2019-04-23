@@ -23,7 +23,7 @@ import org.compiere.util.Env;
 
 /** Generated Process for (Calculate UOM Weights)
  *  @author ADempiere (generated) 
- *  @version Release 3.9.1
+ *  @version Release 3.9.2
  */
 public class CalculateUOMWeights extends CalculateUOMWeightsAbstract
 {

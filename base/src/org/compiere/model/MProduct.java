@@ -1040,28 +1040,25 @@ public class MProduct extends X_M_Product
 	 */
 	public BigDecimal calculateUOMWeights(int weightUOMID, BigDecimal tareWeight, BigDecimal netWeight, BigDecimal qtyBOM, boolean isPackaging)
 	{
-		final String TON       = "t";
-		final String KILOGRAM  = "kg";
-		final String GRAM      = "g";
-		final String MILLIGRAM = "mg";
-		
-		BigDecimal multiplier  = Env.ONE;
-		BigDecimal oneThousand = new BigDecimal(1000);
-		BigDecimal oneMillion  = new BigDecimal(1000000);
-		BigDecimal oneBillion  = new BigDecimal(1000000000);
-		
-		if(isSummary() || getProductType().compareTo("I")!=0)
+		log.info("Weight calculation for Product " + getName());
+		if(isSummary() || getProductType().compareTo("I")!=0) { // Calculation only for non-summary and items products
+			log.info("Product " + getName() + " is summary or not an item");
 			return Env.ZERO;
+		}
 		
 		if(isBOM()) {
 			if(isVerified()) {  // verified BOM: calculate components weight
 				MPPProductBOM bom = MPPProductBOM.getDefault(this, get_TrxName());
-				if(bom==null)
-					return Env.ZERO;
+				if(bom==null)  { // Calculation only for default BOM
+					log.info("Product " + getName() + " has no default BOM");
+					return Env.ZERO;		
+				}
 
 				MPPProductBOMLine[] bomLinesArray = bom.getLines(true);
-				if(bomLinesArray.length==0)
-					return Env.ZERO;
+				if(bomLinesArray.length==0) { 
+					log.info("Product " + getName() + " has no BOM lines");
+					return Env.ZERO;				
+				}
 
 				ArrayList<MPPProductBOMLine> bomLines = new ArrayList<MPPProductBOMLine>(Arrays.asList(bomLinesArray));
 				/*bomLines.stream().forEach( bomComponent -> {
@@ -1071,7 +1068,7 @@ public class MProduct extends X_M_Product
 				BigDecimal tareWeightProduct = Env.ZERO;
 				BigDecimal netWeightProduct  = Env.ZERO;
 				for( MPPProductBOMLine bomLine : bomLines) {
-					MProduct product = bomLine.getProduct();	
+					MProduct product = bomLine.getProduct();
 					boolean isProductPackage= bomLine.getComponentType().compareTo("PK")==0;
 					BigDecimal weight = product.calculateUOMWeights(weightUOMID, tareWeight, netWeight, bomLine.getQty(true), isProductPackage);
 					if(isProductPackage)
@@ -1089,60 +1086,87 @@ public class MProduct extends X_M_Product
 
 				return totalWeightProduct;
 			}
-			else {
+			else {  // Calculation only for verified BOMs
+				log.info("BOM of Product " + getName() + " is not verified");
 				return Env.ZERO;	
 			}
 		}
 		else  { // no BOM -> Get the weight just for the product
-			multiplier  = Env.ONE;
+			log.info("Product " + getName() + " has no BOM -> do calculate weight directly");
+			BigDecimal multiplier   = getUOMMultiplier(weightUOMID, getCalculatedUOM());
+			BigDecimal resultWeight = Env.ZERO;
 			
-			MUOM targetCalculatedUOM  = new MUOM (getCtx(), weightUOMID, get_TrxName());
-			if(getCalculatedUOM()==0)
-				return Env.ZERO;
-			MUOM productCalculatedUOM = new MUOM (getCtx(), getCalculatedUOM(), get_TrxName());
-			
-			if(targetCalculatedUOM.getUOMSymbol().toLowerCase().compareToIgnoreCase(TON)==0) { // From ton to ...
-				if(productCalculatedUOM.getUOMSymbol().toLowerCase().compareToIgnoreCase(KILOGRAM)==0) 
-					multiplier = Env.ONE.divide(oneThousand);
-				else if(productCalculatedUOM.getUOMSymbol().toLowerCase().compareToIgnoreCase(GRAM)==0) 
-					multiplier = Env.ONE.divide(oneMillion);
-				else if(productCalculatedUOM.getUOMSymbol().toLowerCase().compareToIgnoreCase(MILLIGRAM)==0) 
-					multiplier = Env.ONE.divide(oneBillion);
-			} 
-			if(targetCalculatedUOM.getUOMSymbol().toLowerCase().compareToIgnoreCase(KILOGRAM)==0) { // From kg to ...
-				if(productCalculatedUOM.getUOMSymbol().toLowerCase().compareToIgnoreCase(TON)==0) 
-					multiplier =oneThousand;
-				else if(productCalculatedUOM.getUOMSymbol().toLowerCase().compareToIgnoreCase(GRAM)==0) 
-					multiplier = Env.ONE.divide(oneThousand);
-				else if(productCalculatedUOM.getUOMSymbol().toLowerCase().compareToIgnoreCase(MILLIGRAM)==0) 
-					multiplier = Env.ONE.divide(oneMillion);
-			} 
-			else if(targetCalculatedUOM.getUOMSymbol().toLowerCase().compareToIgnoreCase(GRAM)==0) { // From gr to ...
-				if(productCalculatedUOM.getUOMSymbol().toLowerCase().compareToIgnoreCase(TON)==0) 
-					multiplier = oneMillion;
-				else if(productCalculatedUOM.getUOMSymbol().toLowerCase().compareToIgnoreCase(KILOGRAM)==0) 
-					multiplier = oneThousand;
-				else if(productCalculatedUOM.getUOMSymbol().toLowerCase().compareToIgnoreCase(MILLIGRAM)==0) 
-					multiplier = Env.ONE.divide(oneThousand);
+			if(isPackaging) { // tare weight
+				resultWeight = tareWeight.add(getWeight().multiply(qtyBOM).multiply(multiplier));
 			}
-			else if(targetCalculatedUOM.getUOMSymbol().toLowerCase().compareToIgnoreCase(MILLIGRAM)==0) { // From mg to ...
-				if(productCalculatedUOM.getUOMSymbol().toLowerCase().compareToIgnoreCase(TON)==0) 
-					multiplier = oneBillion;
-				else if(productCalculatedUOM.getUOMSymbol().toLowerCase().compareToIgnoreCase(KILOGRAM)==0) 
-					multiplier = oneMillion;
-				else if(productCalculatedUOM.getUOMSymbol().toLowerCase().compareToIgnoreCase(GRAM)==0) 
-					multiplier = oneThousand;
+			else { // net weight
+				resultWeight = netWeight.add(getWeight().multiply(qtyBOM).multiply(multiplier));
 			}
-			
-			if(isPackaging) {
-				// tare weight
-				return tareWeight.add(getWeight().multiply(qtyBOM).multiply(multiplier));
-			}
-			else {
-				// net weight
-				return netWeight.add(getWeight().multiply(qtyBOM).multiply(multiplier));
-			}
+			log.info("Weight: " + resultWeight.toString());
+			return resultWeight;
 		}
 	} // calculateUOMWeights
+
+	/**
+	 * Get multiplier for the target UOM given a source UOM
+	 * Only for weights
+	 * @param targetCalculatedUOM_ID target UOM
+	 * @param productCalculatedUOM_ID source UOM
+	 * @return MProduct or null if not found
+	 */
+	public BigDecimal getUOMMultiplier(int targetCalculatedUOM_ID, int productCalculatedUOM_ID){
+		final String TON       = "t";
+		final String KILOGRAM  = "kg";
+		final String GRAM      = "g";
+		final String MILLIGRAM = "mg";
+
+		BigDecimal oneThousand = new BigDecimal(1000);
+		BigDecimal oneMillion  = new BigDecimal(1000000);
+		BigDecimal oneBillion  = new BigDecimal(1000000000);
+		
+		BigDecimal multiplier  = Env.ONE;
+		
+		MUOM targetCalculatedUOM  = new MUOM (getCtx(), targetCalculatedUOM_ID, get_TrxName());
+		String targetUOMSymbol    = targetCalculatedUOM.getUOMSymbol().toLowerCase();
+		
+		if(productCalculatedUOM_ID==0)
+			return Env.ZERO;
+		MUOM productCalculatedUOM = new MUOM (getCtx(), productCalculatedUOM_ID, get_TrxName());
+		String productUOMSymbol   = productCalculatedUOM.getUOMSymbol().toLowerCase();
+		
+		if(targetUOMSymbol.compareToIgnoreCase(TON)==0) { // To ton from ...
+			if(productUOMSymbol.compareToIgnoreCase(KILOGRAM)==0)  // kilogram
+				multiplier = Env.ONE.divide(oneThousand);
+			else if(productUOMSymbol.compareToIgnoreCase(GRAM)==0)  // gram
+				multiplier = Env.ONE.divide(oneMillion);
+			else if(productUOMSymbol.compareToIgnoreCase(MILLIGRAM)==0)  // milligram
+				multiplier = Env.ONE.divide(oneBillion);
+		} 
+		else if(targetUOMSymbol.compareToIgnoreCase(KILOGRAM)==0) { // To kg from ...
+			if(productUOMSymbol.compareToIgnoreCase(TON)==0)  // ton
+				multiplier =oneThousand;
+			else if(productUOMSymbol.compareToIgnoreCase(GRAM)==0)  // gram
+				multiplier = Env.ONE.divide(oneThousand);
+			else if(productUOMSymbol.compareToIgnoreCase(MILLIGRAM)==0)  // milligram
+				multiplier = Env.ONE.divide(oneMillion);
+		} 
+		else if(targetUOMSymbol.compareToIgnoreCase(GRAM)==0) { // To gr from ...
+			if(productUOMSymbol.compareToIgnoreCase(TON)==0)  // ton
+				multiplier = oneMillion;
+			else if(productUOMSymbol.compareToIgnoreCase(KILOGRAM)==0)  // kilogram
+				multiplier = oneThousand;
+			else if(productUOMSymbol.compareToIgnoreCase(MILLIGRAM)==0)  // milligram
+				multiplier = Env.ONE.divide(oneThousand);
+		}
+		else if(targetUOMSymbol.compareToIgnoreCase(MILLIGRAM)==0) { // To mg from ...
+			if(productUOMSymbol.compareToIgnoreCase(TON)==0)  // ton
+				multiplier = oneBillion;
+			else if(productUOMSymbol.compareToIgnoreCase(KILOGRAM)==0)  // kilogram
+				multiplier = oneMillion;
+			else if(productUOMSymbol.compareToIgnoreCase(GRAM)==0)  // gram
+				multiplier = oneThousand;
+		}
+		return multiplier;
+	} // getUOMMultiplier
 	
 }	//	MProduct
