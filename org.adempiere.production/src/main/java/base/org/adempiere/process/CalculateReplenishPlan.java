@@ -616,7 +616,7 @@ public class CalculateReplenishPlan extends CalculateReplenishPlanAbstract {
 
 	private void createRequisitionLine(MRequisition requisition, MiniMRPProduct mrp, BigDecimal qty) {
 		//requisition.addLinetoQueue(mrp.getM_Product_ID(), mrp.getC_BPartner_ID(), qty, mrp.getPriceActual());
-	MRequisitionLine rLine = new MRequisitionLine(requisition);
+		MRequisitionLine rLine = new MRequisitionLine(requisition);
 		rLine.setM_Product_ID(mrp.getM_Product_ID());
 		rLine.setC_BPartner_ID(mrp.getC_BPartner_ID());
 		rLine.setPriceActual(mrp.getPriceActual());
