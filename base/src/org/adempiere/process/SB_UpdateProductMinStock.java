@@ -28,7 +28,7 @@ import org.compiere.util.DB;
  * 	@author Mario Calderon, mario.calderon@westfalia-it.com, Systemhaus Westfalia http://www.westfalia-it.com
  *  For selected products existing minimum stock definitions are modified.
  *  Not for creating minimum stock definitions.
- *  @version Release 3.9.1
+ *  @version Release 3.9.2
  */
 public class SB_UpdateProductMinStock extends SB_UpdateProductMinStockAbstract
 {
