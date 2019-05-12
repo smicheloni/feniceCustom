@@ -1,0 +1,1274 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Migrations>
+  <Migration EntityType="D" Name="Document Status Indicators" ReleaseNo="3.9.3" SeqNo="4600">
+    <Step DBType="ALL" Parse="Y" SeqNo="10" StepType="SQL">
+      <Comments>Delete for old implementations. They will be re-created</Comments>
+      <SQLStatement>DELETE FROM PA_DocumentStatus WHERE PA_DocumentStatus_ID&gt;=50000 AND  PA_DocumentStatus_ID&lt;=500045;</SQLStatement>
+    </Step>
+    <Step SeqNo="20" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50001" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">321</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">(SELECT COUNT(*) FROM M_InventoryLine WHERE M_InventoryLine.M_Inventory_ID = M_Inventory.M_Inventory_ID) = 0 OR (SELECT COUNT(*) 
+FROM M_InventoryLine WHERE M_InventoryLine.M_Inventory_ID = M_Inventory.M_Inventory_ID AND M_InventoryLine.QtyInternalUse &lt;&gt; 0) &lt;= 0 and m_Inventory.docstatus in ('DR','IP','IV')</Data>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">168</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 09:28:48.251</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 09:28:48.251</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50001</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">Physical Inventory not completed</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">24e47a5a-726f-11e9-a668-d3dc973bf243</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">10</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="30" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50002" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">319</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">m_Inout.issotrx = 'Y' and m_Inout.docstatus in ('VO')</Data>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">169</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 09:30:16.938</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 09:30:16.938</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50002</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">Material Shipments voided</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">591cc5fc-726f-11e9-8c1d-335906b1d5d1</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">20</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="40" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50003" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">319</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">m_Inout.issotrx = 'Y' and m_Inout.docstatus in ('DR','IP','IV')</Data>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">169</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 09:34:16.434</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 09:34:16.434</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50003</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">Material Shipments not completed</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">e7d84320-726f-11e9-8c37-ebf60022043d</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">30</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="50" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50004" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">Material Receipts voided</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">11c3440a-7270-11e9-8c51-2bd99acaa49f</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">40</Data>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">319</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">m_Inout.issotrx = 'N' and m_Inout.docstatus in ('VO')</Data>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">184</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 09:35:26.771</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 09:35:26.771</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50004</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+      </PO>
+    </Step>
+    <Step SeqNo="60" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50005" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">319</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">m_Inout.issotrx = 'N' and m_Inout.docstatus in ('DR','IP','IV')</Data>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">184</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 09:36:17.245</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 09:36:17.245</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50005</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">Material Receipts not completed</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">2fdbf37e-7270-11e9-8c6b-6f71bb0b3c1c</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">50</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="70" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50006" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">6498d71c-7270-11e9-8c87-83cf1fcfd78d</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">60</Data>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">323</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">m_movement.docstatus in ('VO')
+</Data>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">170</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 09:37:45.729</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 09:37:45.729</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50006</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">Material Movements voided</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="80" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50007" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">323</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">m_movement.docstatus in ('DR','IP','IV')</Data>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">170</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 09:38:32.356</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 09:38:32.356</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50007</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">Material Movements not completed</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">806b46f0-7270-11e9-8ca1-f77748fe3c1e</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">70</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="90" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50008" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">321</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">(SELECT COUNT(*) FROM M_InventoryLine WHERE M_InventoryLine.M_Inventory_ID = M_Inventory.M_Inventory_ID) = 0 OR (SELECT COUNT(*) 
+FROM M_InventoryLine WHERE M_InventoryLine.M_Inventory_ID = M_Inventory.M_Inventory_ID AND M_InventoryLine.QtyInternalUse &lt;&gt; 0) &gt; 0 and m_Inventory.docstatus in ('DR','IP','IV')</Data>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">341</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 12:46:29.704</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 12:46:29.704</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50008</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">Inventory Internal Use not completed</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">c2383eca-728a-11e9-b60f-5bc81727dbc1</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">80</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="100" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50009" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">259</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">c_Order.issotrx = 'N' and C_Order.grandtotal=0</Data>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">181</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 12:48:30.394</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 12:48:30.394</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50009</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">PO without lines</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">0a29eb52-728b-11e9-b628-b7e988791e7c</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">90</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="110" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50010" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">259</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">c_Order.issotrx = 'N'  AND C_Order.docstatus in ('VO')</Data>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">181</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 12:49:33.905</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 12:49:33.905</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50010</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">PO voided</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">3006fac2-728b-11e9-b641-4f61695346c2</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">100</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="120" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50011" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 12:50:11.841</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 12:50:11.841</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50011</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">PO not completed</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">469ed296-728b-11e9-a601-534f12a62fbd</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">110</Data>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">259</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">c_Order.issotrx = 'N' and C_Order.docstatus in ('DR','IP','IV')</Data>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">181</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="130" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50012" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">259</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">c_Order.issotrx = 'N' and c_Order.docstatus in ('CO') and date_Part('days',getdate() - c_Order.dateOrdered) &gt;30</Data>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">181</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 12:50:53.09</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 12:50:53.09</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50012</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">PO not closed &gt;30 days</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">5fd324f6-728b-11e9-a61a-63ca030beefa</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">120</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="140" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50013" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">259</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">C_Order_ID IN (
+   SELECT c_order_id 
+   FROM rv_orderdetail 
+   WHERE rv_orderdetail.qtyordered &gt; rv_orderdetail.qtydelivered 
+   AND rv_orderdetail.docstatus in ('CO') 
+   AND rv_orderdetail.issotrx='N'
+)</Data>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">181</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 12:52:15.906</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 12:52:15.906</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50013</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">PO missing Material Receipt</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">909110d0-728b-11e9-b65a-7bf5f7d6f930</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">130</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="150" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50014" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">259</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">C_Order_ID IN (
+   SELECT c_order_id 
+   FROM rv_orderdetail 
+   WHERE rv_orderdetail.qtyordered &gt; rv_orderdetail.qtyinvoiced 
+   AND rv_orderdetail.docstatus in ('CO') 
+   AND rv_orderdetail.issotrx='N'
+)</Data>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">181</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 12:53:04.1</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 12:53:04.1</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50014</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">PO missing Invoicing</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">ad5b2296-728b-11e9-b673-2faacaf6a54b</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">140</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="160" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50015" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 12:54:44.059</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 12:54:44.059</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50015</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">Purchase Invoices not completed</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">e8e98ed8-728b-11e9-b68c-ffed90cd518c</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">150</Data>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">318</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">C_Invoice.docstatus in ('DR','IP','IV') and C_Invoice.issotrx='N'</Data>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">183</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="170" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50016" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">224</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">GL_Journal.docstatus in ('VO')</Data>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">53296</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 12:55:43.396</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 12:55:43.396</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50016</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">Journals voided</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">0c3bf510-728c-11e9-b6a5-eb7045634637</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">160</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="180" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50017" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">Journals not completed</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">2cbacfbe-728c-11e9-b6be-efb94159d554</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">170</Data>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">224</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">GL_Journal.docstatus in ('DR','IP','IV')</Data>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">53296</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 12:56:37.918</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 12:56:37.918</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50017</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+      </PO>
+    </Step>
+    <Step SeqNo="190" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50018" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">225</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">GL_JournalBatch.docstatus in ('VO')</Data>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">132</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 12:57:31.199</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 12:57:31.199</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50018</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">Journal Batches voided</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">4d32065e-728c-11e9-b6d7-03c89047a12d</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">180</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="200" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50019" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">62c90eea-728c-11e9-b6f0-fb5a5dbe5685</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">190</Data>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">225</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">GL_JournalBatch.docstatus in ('DR','IP','IV')</Data>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">132</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 12:58:08.591</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 12:58:08.591</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50019</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">Journal Batches not completed</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="210" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50020" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">54052</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">m_Productionbatch.docstatus in ('CO') and m_Productionbatch.targetqty&lt;qtycompleted</Data>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">53465</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 12:59:13.184</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 12:59:13.184</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50020</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">Production Orders underachieved</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">8967451c-728c-11e9-b709-733a3c0b0d06</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">200</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="220" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50021" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">54052</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">m_Productionbatch.docstatus in ('DR','IP','IV')</Data>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">53465</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 12:59:49.505</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 12:59:49.505</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50021</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">Production Orders not completed</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">9eee7f54-728c-11e9-b722-d35757bf9ad1</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">210</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="230" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50022" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74888" Column="WhereClause">c_Payment.docstatus in ('VO')
+</Data>
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">335</Data>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">195</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 13:00:43.916</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 13:00:43.916</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50022</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">Payments voided</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">bf5b807a-728c-11e9-b73b-5ba70de7b949</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">220</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="240" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50023" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">426</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">c_Payselection.c_Bankaccount_ID is null and c_Payselection.docstatus in ('CO','CL')
+ AND EXISTS(SELECT 1 FROM C_PaySelectionline psl 
+ LEFT JOIN C_Payselectionline pslp ON(psl.c_Payselectionline_ID = pslp.c_payselectionline_parent_id) 
+ LEFT JOIN C_Payselection psp on (pslp.c_Payselection_ID=psp.c_Payselection_ID)
+ WHERE psl.C_PaySelection_ID = C_PaySelection.C_PaySelection_ID 
+ AND (pslp.c_payselectionline_parent_id is null OR psp.DocStatus NOT IN('CO', 'CL')))</Data>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">206</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 13:03:17.389</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 13:03:17.389</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50023</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">Payments planned not executed</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">1ad3fcb6-728d-11e9-b754-ef789b15e550</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">230</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="250" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50024" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 13:04:42.997</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 13:04:42.997</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50024</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">Payments not allocated</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">4ddf254a-728d-11e9-b76d-57c09333dddc</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">240</Data>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">335</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">c_Payment.docstatus in ('CO','CL') and c_Payment.isallocated = 'N'</Data>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">195</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="260" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50025" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">426</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">C_PaySelection.DocStatus = 'CO' 
+				AND C_PaySelection.C_BankAccount_ID IS NOT NULL 
+				AND EXISTS(SELECT 1 FROM C_PaySelectionCheck psc 
+								LEFT JOIN C_Payment p ON(p.C_Payment_ID = psc.C_Payment_ID) 
+								WHERE psc.C_PaySelection_ID = C_PaySelection.C_PaySelection_ID 
+								AND (psc.C_Payment_ID IS NULL OR p.DocStatus NOT IN('CO', 'CL')))</Data>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">206</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 13:06:14.525</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 13:06:14.525</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50025</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">Payment Selections not paid</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">846e80a6-728d-11e9-b786-23f35924c320</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">250</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="270" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50026" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">426</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">c_Payselection.docstatus in ('DR','IP','IV')</Data>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">206</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 13:06:50.262</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 13:06:50.262</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50026</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">Payment Selections not completed</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">99b8874a-728d-11e9-b79f-67fc3df3b3ed</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">260</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="280" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50027" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">335</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">isallocated = 'N' AND  paymentallocated(c_payment_id, c_currency_id) &lt;&gt; 0 AND isReceipt='Y'</Data>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">195</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 13:07:37.686</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 13:07:37.686</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50027</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">Payments AR Partially Allocated</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">b5fd366c-728d-11e9-b7b8-f7fb2de36a5c</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">270</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="290" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50028" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">335</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">c_Payment.docstatus in ('DR','IP','IV') and isreceipt = 'Y'</Data>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">195</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 13:08:15.264</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 13:08:15.264</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50028</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">Payments AR not completed</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">ccfe03a0-728d-11e9-b7d1-dfa01ef9af63</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">280</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="300" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50029" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">335</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">C_Payment.DocStatus = 'CO' AND C_Payment.IsAllocated = 'N' AND C_Payment.C_DocType_ID IN (select dt.C_DocType_ID from C_DocType dt where dt.docbasetype='ARR')</Data>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">195</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 13:08:49.847</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 13:08:49.847</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50029</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">Payments  AR not allocated</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">e0fee0c2-728d-11e9-b7ea-13fc0707edae</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">290</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="310" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50030" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">335</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">isallocated = 'N' AND  paymentallocated(c_payment_id, c_currency_id) &lt;&gt; 0 AND isReceipt='N'</Data>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">195</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 13:09:33.334</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 13:09:33.334</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50030</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">Payments AP Partially Allocated</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">faedecbc-728d-11e9-b803-579376647cda</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">300</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="320" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50031" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">195</Data>
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">335</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">c_Payment.docstatus in ('DR','IP','IV') and isreceipt = 'N'</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 13:10:12.072</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 13:10:12.072</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50031</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">Payments AP not completed</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">11ff4284-728e-11e9-b81c-83870d7871c5</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">310</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="330" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50032" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">335</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">C_Payment.DocStatus = 'CO' AND C_Payment.IsAllocated = 'N' AND C_Payment.C_DocType_ID IN (select dt.C_DocType_ID from C_DocType dt where dt.docbasetype='APP')</Data>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">195</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 13:10:51.68</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 13:10:51.68</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50032</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">Payments AP not allocated</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">29a03f06-728e-11e9-b835-8f6b40b6426c</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">320</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="340" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50033" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50033</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">SO voided</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">4b4a9962-728e-11e9-b84e-cbb937d073a4</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">330</Data>
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">259</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">c_Order.issotrx = 'Y'  AND C_Order.docstatus in ('VO')</Data>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">143</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 13:11:48.153</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 13:11:48.153</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="350" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50034" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">143</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 13:17:44.324</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 13:17:44.324</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50034</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">SO not completed</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">1f935ae2-728f-11e9-b888-ef5477afc6c6</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">340</Data>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">259</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">c_Order.issotrx = 'Y' and C_Order.docstatus in ('DR','IP','IV')</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="360" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50035" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">259</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">C_Order.IsSOTrx = 'Y' AND C_Order.DocStatus = 'CO' 
+AND C_Order.DatePromised &lt; (Current_Date + 7) 
+AND C_Order.DatePromised &gt; (Current_Date - 365) 
+AND EXISTS (SELECT C_OrderLine_ID 
+            FROM C_OrderLine 
+            inner join M_Product on (C_OrderLine.m_Product_ID=M_Product.m_Product_ID AND M_Product.producttype='I')
+            WHERE C_Order_ID = C_Order.C_Order_ID AND QtyEntered &gt; QtyDelivered)</Data>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">143</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 13:12:46.545</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 13:12:46.545</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50035</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">SO open due in 7 days</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">6e16b034-728e-11e9-b867-87d531fb6368</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">350</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="370" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50036" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">259</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">c_Order.issotrx = 'Y' and c_Order.docstatus in ('CO') and date_Part('days',getdate() - c_Order.dateOrdered) &gt;30</Data>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">143</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 13:18:54.525</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 13:18:54.525</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50036</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">SO not closed &gt;30 days</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">4968c604-728f-11e9-b8a1-3353ae15fef0</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">360</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="380" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50037" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 13:19:27.565</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50037</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">SO missing Shipment</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">5d1c5e9a-728f-11e9-b8ba-175183295027</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">370</Data>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">259</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">C_Order_ID IN (
+   SELECT c_order_id 
+   FROM rv_orderdetail 
+   inner join M_Product on (rv_orderdetail.m_Product_ID=M_Product.m_Product_ID AND M_Product.producttype='I')
+   WHERE rv_orderdetail.qtyordered &gt; rv_orderdetail.qtydelivered AND rv_orderdetail.docstatus in ('CO') 
+   AND rv_orderdetail.issotrx='Y'
+)</Data>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">143</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 13:19:27.565</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="390" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50038" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">259</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">C_Order_ID IN (
+   SELECT c_order_id 
+   FROM rv_orderdetail 
+   WHERE rv_orderdetail.qtyordered &gt; rv_orderdetail.qtyinvoiced 
+   AND rv_orderdetail.docstatus in ('CO') 
+   AND rv_orderdetail.issotrx='Y'
+)</Data>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">143</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 13:20:17.673</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 13:20:17.673</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50038</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">SO missing Invoicing</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">7afb7f18-728f-11e9-b8d3-db0e2f6c5636</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">380</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="400" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50039" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">259</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">C_Order.IsSoTrx='Y' and c_Order.DateOrdered &gt; Current_Date-1</Data>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">143</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 13:21:00.344</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 13:21:00.344</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50039</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">SO created today</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">94650780-728f-11e9-b8ec-e38a8036d6d9</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">390</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="410" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50040" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">318</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">c_Invoice.issotrx = 'Y' and c_Invoice.docstatus in ('DR','IP','IV')</Data>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">167</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 13:21:55.455</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 13:21:55.455</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50040</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">Sales Invoices not completed</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">b54d52e0-728f-11e9-b905-3f3e4881369e</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">400</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="420" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50041" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="85014" Column="UUID">d398cf54-728f-11e9-b91e-4beeca0456ff</Data>
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">259</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">C_Order.IsSOTrx = 'Y' AND C_Order.DocStatus IN ('DR', 'IP') 
+AND C_Order.DatePromised &lt; (Current_Date + 7) 
+AND C_Order.DatePromised &lt;= (Current_Date - 365) 
+AND EXISTS (SELECT * FROM C_OrderLine WHERE C_Order_ID = C_Order.C_Order_ID AND QtyEntered &gt; QtyDelivered)</Data>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">143</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 13:22:46.335</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 13:22:46.335</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50041</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">SO draft overdue prior to 1 year</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">410</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="430" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50042" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">259</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">C_Order.IsSOTrx = 'Y' AND C_Order.DocStatus IN ('DR' , 'IP')
+AND C_Order.DatePromised &lt; (Current_Date + 7) 
+AND C_Order.DatePromised &gt; (Current_Date - 365) 
+AND EXISTS (SELECT * FROM C_OrderLine WHERE C_Order_ID = C_Order.C_Order_ID AND QtyEntered &gt; QtyDelivered)</Data>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">143</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 13:24:11.552</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 13:24:11.552</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50042</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">SO draft due in 7 days</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">06fcc67a-7290-11e9-b937-535a45605da8</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">420</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="440" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50043" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">319</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">M_InOut.IsSOTrx='Y' AND M_InOut.Processed='N'</Data>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">169</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 13:25:07.0</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 13:25:07.0</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50043</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">Customer Shipments Pending</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">277168a2-7290-11e9-b950-e7c2b7752035</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">430</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="450" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50044" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74888" Column="WhereClause">C_Order.IsSOTrx='Y' AND C_Order.Processed='N'</Data>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">143</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-09 13:30:03.292</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-09 13:30:03.292</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50044</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">Pending Sales Orders</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">d8056272-7290-11e9-b969-d31a0883b850</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">440</Data>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">259</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="460" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50045" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">53221</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause" isNewNull="true"/>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">53086</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
+        <Data AD_Column_ID="74875" Column="Created">2019-05-10 09:11:47.86</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-05-10 09:11:47.86</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50045</Data>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">Documents not processed</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">ee74473a-7335-11e9-9ca9-bf6ec45a2075</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">450</Data>
+      </PO>
+    </Step>
+  </Migration>
+</Migrations>
