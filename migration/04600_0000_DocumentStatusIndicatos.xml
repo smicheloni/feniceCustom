@@ -426,7 +426,7 @@ FROM M_InventoryLine WHERE M_InventoryLine.M_Inventory_ID = M_Inventory.M_Invent
       </PO>
     </Step>
     <Step SeqNo="170" StepType="AD">
-      <PO AD_Table_ID="53898" Action="I" Record_ID="50016" Table="PA_DocumentStatus">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50046" Table="PA_DocumentStatus">
         <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
         <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
         <Data AD_Column_ID="74887" Column="AD_Table_ID">224</Data>
@@ -437,7 +437,7 @@ FROM M_InventoryLine WHERE M_InventoryLine.M_Inventory_ID = M_Inventory.M_Invent
         <Data AD_Column_ID="74886" Column="Number_PrintFont_ID">129</Data>
         <Data AD_Column_ID="74875" Column="Created">2019-05-09 12:55:43.396</Data>
         <Data AD_Column_ID="74877" Column="Updated">2019-05-09 12:55:43.396</Data>
-        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50016</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50046</Data>
         <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
         <Data AD_Column_ID="74881" Column="IsActive">true</Data>
         <Data AD_Column_ID="74879" Column="Name">Journals voided</Data>
