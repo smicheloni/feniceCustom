@@ -2,8 +2,8 @@
 <Migrations>
   <Migration EntityType="D" Name="Document Status Indicators" ReleaseNo="3.9.3" SeqNo="4600">
     <Step DBType="ALL" Parse="Y" SeqNo="10" StepType="SQL">
-      <Comments>Delete for old implementations. They will be re-created</Comments>
-      <SQLStatement>DELETE FROM PA_DocumentStatus WHERE PA_DocumentStatus_ID&gt;=50000 AND  PA_DocumentStatus_ID&lt;=500045;</SQLStatement>
+      <Comments>Define several indicators. Delete first old definitions. They will be re-created</Comments>
+      <SQLStatement>DELETE FROM PA_DocumentStatus WHERE PA_DocumentStatus_ID&gt;=50000 AND  PA_DocumentStatus_ID&lt;=500048;</SQLStatement>
     </Step>
     <Step SeqNo="20" StepType="AD">
       <PO AD_Table_ID="53898" Action="I" Record_ID="50001" Table="PA_DocumentStatus">
@@ -229,7 +229,7 @@ FROM M_InventoryLine WHERE M_InventoryLine.M_Inventory_ID = M_Inventory.M_Invent
         <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
         <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
         <Data AD_Column_ID="74887" Column="AD_Table_ID">259</Data>
-        <Data AD_Column_ID="74888" Column="WhereClause">c_Order.issotrx = 'N' and C_Order.grandtotal=0</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">c_Order.issotrx = 'N' and C_Order.grandtotal=0 and C_Order.docstatus = 'DR'</Data>
         <Data AD_Column_ID="74889" Column="AD_Window_ID">181</Data>
         <Data AD_Column_ID="74884" Column="Name_PrintFont_ID">129</Data>
         <Data AD_Column_ID="74885" Column="Number_PrintColor_ID">102</Data>
@@ -1268,6 +1268,38 @@ AND EXISTS (SELECT * FROM C_OrderLine WHERE C_Order_ID = C_Order.C_Order_ID AND 
         <Data AD_Column_ID="85014" Column="UUID">ee74473a-7335-11e9-9ca9-bf6ec45a2075</Data>
         <Data AD_Column_ID="74883" Column="Name_PrintColor_ID">102</Data>
         <Data AD_Column_ID="74882" Column="SeqNo">450</Data>
+      </PO>
+    </Step>
+    <Step SeqNo="470" StepType="AD">
+      <PO AD_Table_ID="53898" Action="I" Record_ID="50047" Table="PA_DocumentStatus">
+        <Data AD_Column_ID="74873" Column="AD_User_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74872" Column="AD_Role_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74881" Column="IsActive">true</Data>
+        <Data AD_Column_ID="74879" Column="Name">SO missing Material Issue</Data>
+        <Data AD_Column_ID="74880" Column="Description" isNewNull="true"/>
+        <Data AD_Column_ID="74890" Column="AD_Form_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74876" Column="CreatedBy">100</Data>
+        <Data AD_Column_ID="74882" Column="SeqNo">460</Data>
+        <Data AD_Column_ID="74870" Column="AD_Client_ID">11</Data>
+        <Data AD_Column_ID="74871" Column="AD_Org_ID">0</Data>
+        <Data AD_Column_ID="74878" Column="UpdatedBy">100</Data>
+        <Data AD_Column_ID="85014" Column="UUID">32d363b0-cac6-11e9-82bd-9bc366ec46b5</Data>
+        <Data AD_Column_ID="74883" Column="Name_PrintColor_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74874" Column="C_Project_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74887" Column="AD_Table_ID">360</Data>
+        <Data AD_Column_ID="74888" Column="WhereClause">C_Order_ID IN (
+   SELECT c_order_id 
+   FROM rv_orderdetail 
+   WHERE rv_orderdetail.qtyordered &amp;gt; rv_orderdetail.qtydelivered 
+   AND rv_orderdetail.docstatus in ('CO') 
+   AND rv_orderdetail.issotrx='Y'</Data>
+        <Data AD_Column_ID="74889" Column="AD_Window_ID">143</Data>
+        <Data AD_Column_ID="74884" Column="Name_PrintFont_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74885" Column="Number_PrintColor_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74886" Column="Number_PrintFont_ID" isNewNull="true"/>
+        <Data AD_Column_ID="74875" Column="Created">2019-08-29 19:33:41.293</Data>
+        <Data AD_Column_ID="74877" Column="Updated">2019-08-29 19:33:41.293</Data>
+        <Data AD_Column_ID="74869" Column="PA_DocumentStatus_ID">50047</Data>
       </PO>
     </Step>
   </Migration>
