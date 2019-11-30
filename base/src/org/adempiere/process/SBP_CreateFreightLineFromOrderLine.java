@@ -36,8 +36,8 @@ import org.eevolution.model.MDDFreightLine;
  *	Generate Shipments.
  *	Manual or Automatic
  *	
- *  @author Jorg Janke
- *  @version $Id: InOutGenerate.java,v 1.2 2006/07/30 00:51:01 jjanke Exp $
+ *  @author Susanne Calderon
+ *  @version $Id: InOutGenerate.java,v 1.8 2019/11/29 00:51:01 SusanneCalderon
  */
 public class SBP_CreateFreightLineFromOrderLine extends SvrProcess
 {
@@ -98,46 +98,38 @@ public class SBP_CreateFreightLineFromOrderLine extends SvrProcess
 	}	//	prepare
 
 	/**
-	 * 	Generate Shipments
+	 * 	Create Freight Lines
 	 *	@return info
 	 *	@throws Exception
 	 */
 	protected String doIt () throws Exception{
-
-		freight = new MDDFreight(getCtx(), freightID, get_TrxName());
-		MOrder order = new MOrder(getCtx(), orderID, get_TrxName());
-		
+		freight      = new MDDFreight(getCtx(), freightID, get_TrxName());
+		MOrder order = new MOrder(getCtx(), orderID, get_TrxName());	
 		for (MOrderLine orderLine: order.getLines()) 
 		{	
-			generate(orderLine);
+			int freightLine_ID = orderLine.get_ValueAsInt("DD_FreightLine_ID");
+			if(freightLine_ID<=0) {
+				createFreightLine(orderLine);
+			}
 		}
 		return "";
 	}	//	doIt
 	
 	/**
-	 * 	Generate Shipments
-	 * 	@param pstmt Order Query
+	 * 	Create Freight Line
+	 * 	@param MOrderLine orderLine
 	 *	@return info
 	 */
-	private String generate (MOrderLine orderLine)
+	private String createFreightLine (MOrderLine orderLine)
 	{
-		String sqlFreight = "select sum(DD_FreightLine_ID) from  dd_FreightLine fl " +
-				" INNER JOIN DD_Freight f on f.DD_Freight_ID=fl.DD_Freight_ID "
-				+ " where f.docstatus in ('CO','CL') and fl.c_OrderLine_ID=?";
-		int no = DB.getSQLValueEx(get_TrxName(), sqlFreight, orderLine.getC_OrderLine_ID());
-		if (no > 0) {
-			msg = msg + " Linea " + orderLine.getLine() + " en container";
-			return "";
-		}
 		if (freight == null) {
 			freight = new MDDFreight(getCtx(), freightID, get_TrxName());
 			if (freightID == 0) {
 				freight.setAD_Org_ID(orderLine.getAD_Org_ID());
-				freight.setC_Order_ID(orderLine.getC_Order_ID());
+				// freight.setC_Order_ID(orderLine.getC_Order_ID());  // Do not set Orderline in Freight! There can be several of them.
 				freight.setM_Shipper_ID(shipperID);
 				freight.setDateDoc(m_movementDate);
 				freight.setDateOrdered(m_movementDate);
-				//MDocType docType = MDocType.getOfDocBaseType(getCtx(), "FOB")[0];
 				freight.setC_DocType_ID(MDocType.getOfDocBaseType(getCtx(), "FOB")[0].getC_DocType_ID());
 				freight.saveEx();				
 			}
@@ -155,8 +147,6 @@ public class SBP_CreateFreightLineFromOrderLine extends SvrProcess
 		return "@Created@ = " + m_created;
 	}	//	generate
 	
-	
-
 	
 	private int getLineNo(MDDFreight freight) {
         return DB.getSQLValueEx(
