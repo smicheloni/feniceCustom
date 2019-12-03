@@ -139,6 +139,7 @@ public class SBP_CreateFreightLineFromOrderLine extends SvrProcess
 		freightLine.setDD_Freight_ID(freight.getDD_Freight_ID());
 		freightLine.setM_Product_ID(orderLine.getM_Product_ID());
 		freightLine.set_ValueOfColumn("MovementQty", orderLine.getQtyOrdered());
+		freightLine.set_ValueOfColumn(MOrderLine.COLUMNNAME_C_Order_ID, orderLine.getC_Order_ID());
 		freightLine.set_ValueOfColumn(MOrderLine.COLUMNNAME_C_OrderLine_ID, orderLine.getC_OrderLine_ID());
 		freightLine.setFreightAmt(Env.ZERO);
 		freightLine.set_ValueOfColumn("C_UOM_ID", orderLine.getC_UOM_ID());
