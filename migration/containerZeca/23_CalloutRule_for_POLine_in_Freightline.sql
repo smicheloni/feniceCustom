@@ -1,21 +1,24 @@
--- Dec 3, 2019 7:24:20 PM CST
--- I forgot to set the DICTIONARY_ID_COMMENTS System Configurator
+-- Rule for PO Line in Freight Order Line
 UPDATE AD_Column SET Callout='@Script:groovy:updateFreightLine',Updated=TO_TIMESTAMP('2019-12-03 19:24:20','YYYY-MM-DD HH24:MI:SS'),UpdatedBy=100 WHERE AD_Column_ID=95004
 ;
 
--- Dec 3, 2019 7:25:26 PM CST
--- I forgot to set the DICTIONARY_ID_COMMENTS System Configurator
 INSERT INTO AD_Rule (AD_Org_ID,AD_Client_ID,Script,EntityType,RuleType,EventType,IsActive,AD_Rule_ID,Value,Name,Created,CreatedBy,Description,Updated,UpdatedBy) VALUES (0,0,'import java.math.BigDecimal;
 import org.compiere.model.MOrderLine;
 import org.compiere.util.DB;
 
 Integer C_Orderline_ID = (Integer)A_Value;
-if (C_Orderline_ID == null || C_Orderline_ID.intValue() == 0)
-           return "";
+if (C_Orderline_ID == null || C_Orderline_ID.intValue() == 0){
+    A_Tab.setValue("M_Product_ID", null); 
+    A_Tab.setValue("MovementQty", 0); 
+           return "";            
+}
 
 MOrderLine orderline = new MOrderLine(A_Ctx, C_Orderline_ID, null);
-if (orderline == null || orderline.getC_OrderLine_ID() == 0)
-           return "";
+if (orderline == null || orderline.getC_OrderLine_ID() == 0){
+    A_Tab.setValue("M_Product_ID", null); 
+    A_Tab.setValue("MovementQty", 0); 
+           return "";            
+}
 
 // M_Product_ID
 String sql = "SELECT ol.M_Product_ID " + 
