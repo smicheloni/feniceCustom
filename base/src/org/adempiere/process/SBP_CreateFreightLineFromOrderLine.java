@@ -130,7 +130,7 @@ public class SBP_CreateFreightLineFromOrderLine extends SvrProcess
 				freight.setM_Shipper_ID(shipperID);
 				freight.setDateDoc(m_movementDate);
 				freight.setDateOrdered(m_movementDate);
-				freight.setC_DocType_ID(MDocType.getOfDocBaseType(getCtx(), "FOB")[0].getC_DocType_ID());
+				freight.setC_DocType_ID(MDocType.getOfDocBaseType(getCtx(), "FRO")[0].getC_DocType_ID());
 				freight.saveEx();				
 			}
 		}
