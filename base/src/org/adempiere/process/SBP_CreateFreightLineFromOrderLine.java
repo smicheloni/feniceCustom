@@ -107,8 +107,8 @@ public class SBP_CreateFreightLineFromOrderLine extends SvrProcess
 		MOrder order = new MOrder(getCtx(), orderID, get_TrxName());	
 		for (MOrderLine orderLine: order.getLines()) 
 		{	
-			int freightLine_ID = orderLine.get_ValueAsInt("DD_FreightLine_ID");
-			if(freightLine_ID<=0) {
+			int cOrderLine_ID = orderLine.getC_OrderLine_ID();
+			if(getddFreightLine_ID(cOrderLine_ID)<=0) {
 				createFreightLine(orderLine);
 			}
 		}
@@ -155,5 +155,13 @@ public class SBP_CreateFreightLineFromOrderLine extends SvrProcess
                 "SELECT COALESCE(MAX(Line),0)+10 AS DefaultValue FROM DD_FreightLine WHERE DD_Freight_ID=?",
                 freight.getDD_Freight_ID());
 	}
+	
+	
+	private int getddFreightLine_ID(int cOrderLine_ID) {
+        return DB.getSQLValueEx(
+                get_TrxName(),
+                "SELECT C_OrderLine_ID FROM DD_FreightLine WHERE C_OrderLine_ID=? FETCH FIRST 1 ROW ONLY",
+                cOrderLine_ID);
+	} // getddFreightLine_ID
 	 
 }	//	InOutGenerate

@@ -53,8 +53,8 @@ public class SBP_InOutCreateFrom extends SBP_InOutCreateFromAbstract {
 
 		MDDFreight freight    = new MDDFreight(getCtx(), getfreightId(), get_TrxName());
 		for(MDDFreightLine freightLine : freight.getLines()) {
-	    	int inOut_ID = freightLine.get_ValueAsInt("M_InOutLine_ID");
-			if(inOut_ID>0) {
+	    	int ddFreightLine_ID = freightLine.getDD_FreightLine_ID();
+			if(getMInOut_ID(ddFreightLine_ID)>0) {
 				continue;  // Material already received from Freight
 			}
 			int product_ID         = freightLine.getM_Product_ID();
@@ -90,6 +90,14 @@ public class SBP_InOutCreateFrom extends SBP_InOutCreateFromAbstract {
 		}
 		return "@Created@ " + created;
 	}
+	
+	
+	private int getMInOut_ID(int ddFreightLine_ID) {
+        return DB.getSQLValueEx(
+                get_TrxName(),
+                "SELECT DD_FreightLine_ID FROM M_InOutLine WHERE DD_FreightLine_ID=? FETCH FIRST 1 ROW ONLY",
+                ddFreightLine_ID);
+	} // getMInOut_ID
 	
 		
 }
