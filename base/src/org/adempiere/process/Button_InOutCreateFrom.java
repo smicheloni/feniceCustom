@@ -33,7 +33,7 @@ import org.eevolution.model.MDDFreightLine;
  *  @author SusanneCalderon
  *  @version 1
  */
-public class SBP_InOutCreateFrom extends SBP_InOutCreateFromAbstract {
+public class Button_InOutCreateFrom extends Button_InOutCreateFromAbstract {
 
 	/**	Create From Type of Order	*/
 	private static final String FREGIGHTORDER = "O";

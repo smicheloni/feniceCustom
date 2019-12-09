@@ -39,7 +39,7 @@ import org.eevolution.model.MDDFreightLine;
  *  @author Susanne Calderon
  *  @version $Id: InOutGenerate.java,v 1.8 2019/11/29 00:51:01 SusanneCalderon
  */
-public class SBP_CreateFreightLineFromOrderLine extends SvrProcess
+public class Button_CreateFreightLineFromOrderLine extends SvrProcess
 {
 	/** DocAction				*/
     /** Shipment Date                       */

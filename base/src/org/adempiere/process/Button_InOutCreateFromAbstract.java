@@ -24,7 +24,7 @@ import org.compiere.process.SvrProcess;
  *  @author ADempiere (generated) 
  *  @version Release 3.9.0
  */
-public abstract class SBP_InOutCreateFromAbstract extends SvrProcess {
+public abstract class Button_InOutCreateFromAbstract extends SvrProcess {
 	/** Process Value 	*/
 	private static final String VALUE_FOR_PROCESS = "SBP_InOutCreateFrom";
 	/** Process Name 	*/
